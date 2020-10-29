@@ -1,45 +1,44 @@
-import * as React from 'react'
-import { graphql } from 'gatsby'
-
-import Page from '../components/Page'
-import Container from '../components/Container'
-import IndexLayout from '../layouts'
+import React, { FC, useEffect } from "react";
+import { graphql } from "gatsby";
+import { ReactNodeArray } from "react";
 
 interface PageTemplateProps {
-  data: {
-    site: {
-      siteMetadata: {
-        title: string
-        description: string
-        author: {
-          name: string
-          url: string
-        }
-      }
-    }
-    markdownRemark: {
-      html: string
-      excerpt: string
-      frontmatter: {
-        title: string
-      }
-    }
-  }
+    data: {
+        site: {
+            siteMetadata: {
+                title: string;
+                description: string;
+                author: {
+                    name: string;
+                    url: string;
+                };
+            };
+        };
+        markdownRemark: {
+            html: string;
+            excerpt: string;
+            frontmatter: {
+                projectName: string;
+                link: string;
+                technologies: string[];
+                image: {
+                  publicURL: string;
+                };
+            };
+        };
+    };
+    children: ReactNodeArray;
 }
 
-const PageTemplate: React.FC<PageTemplateProps> = ({ data }) => (
-  <IndexLayout>
-    <Page>
-      <Container>
-        <h1>{data.markdownRemark.frontmatter.title}</h1>
-        {/* eslint-disable-next-line react/no-danger */}
-        <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
-      </Container>
-    </Page>
-  </IndexLayout>
-)
+const PageTemplate: FC<PageTemplateProps> = ({ data }: PageTemplateProps) =>  {
+    useEffect(() => {
+        location.assign(data.markdownRemark.frontmatter.link);
+    });
 
-export default PageTemplate
+    return <p>Redirecting...</p>;
+};
+
+export default PageTemplate;
 
 export const query = graphql`
   query PageTemplateQuery($slug: String!) {
@@ -55,10 +54,15 @@ export const query = graphql`
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
-      excerpt
-      frontmatter {
-        title
-      }
+        excerpt
+        frontmatter {
+            projectName
+            technologies
+            link
+            image {
+                publicURL
+            }
+        }
     }
   }
-`
+`;

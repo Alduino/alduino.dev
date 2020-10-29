@@ -1,20 +1,26 @@
 {
   "parser": "@typescript-eslint/parser",
-  "extends": ["eslint-config-blvd/react", "prettier/@typescript-eslint", "prettier/react", "plugin:prettier/recommended"],
-  "parserOptions": {
-    "ecmaVersion": 2018,
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true
-    }
-  },
+  "extends": ["plugin:react/recommended", "plugin:@typescript-eslint/recommended", "eslint:recommended"],
   "settings": {
     "react": {
       "version": "detect"
     }
   },
+  "plugins": [
+    "emotion",
+    "react",
+    "@typescript-eslint"
+  ],
+  "env": {
+    "browser": true
+  },
   "rules": {
+    "indent": ["error", 4],
     "max-len": ["error", { "code": 140, "ignoreUrls": true }],
+    "jsx-quotes": ["error", "prefer-double"],
+
+    "quotes": ["error", "double"],
+    "semi": ["error", "always"],
     "import/prefer-default-export": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
     "react/no-unescaped-entities": [
@@ -22,6 +28,10 @@
       {
         "forbid": [{ "char": ">", "alternatives": ["&gt;"] }, { "char": "}", "alternatives": ["&#125;"] }]
       }
-    ]
+    ],
+    "prefer-const": "error",
+    "emotion/no-vanilla": "error",
+    "emotion/syntax-preference": ["error", "object"],
+    "emotion/jsx-import": "error"
   }
 }

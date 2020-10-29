@@ -1,21 +1,20 @@
-import * as React from 'react'
-import styled from '@emotion/styled'
+/** @jsx jsx */
+import { jsx } from "@emotion/core";
+import { FC, ReactElement } from "react";
 
-import { widths } from '../styles/variables'
-import { getEmSize } from '../styles/mixins'
-
-const StyledContainer = styled.div`
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  width: auto;
-  max-width: ${getEmSize(widths.lg)}em;
-`
-
-interface ContainerProps {
-  className?: string
+export interface ContainerProps {
+    children: ReactElement;
 }
 
-const Container: React.FC<ContainerProps> = ({ children, className }) => <StyledContainer className={className}>{children}</StyledContainer>
+const Container: FC<ContainerProps> = (props: ContainerProps) => (
+    <main css={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        minHeight: "100vh"
+    }}>
+        {props.children}
+    </main>
+);
 
-export default Container
+export default Container;

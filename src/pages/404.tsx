@@ -1,21 +1,25 @@
-import * as React from 'react'
-import { Link } from 'gatsby'
+/** @jsx jsx */
+import { jsx } from "@emotion/core";
+import { Heading, Stack, Text } from "@chakra-ui/core";
+import Container from "../components/Container";
+import Link from "../components/Link";
 
-import Page from '../components/Page'
-import Container from '../components/Container'
-import IndexLayout from '../layouts'
+const IndexPage = () => (
+    <Container>
+        <Stack css={{
+            maxWidth: 512,
+            textAlign: "justify",
+            marginTop: "-8em"
+        }}>
+            <Heading textAlign="center">Oops!</Heading>
+            <Text>
+                We couldn't find that page.
+            </Text>
+            <Link href="/" alignSelf="center" fontWeight="bold" mt={4}>
+                Go home
+            </Link>
+        </Stack>
+    </Container>
+);
 
-const NotFoundPage = () => (
-  <IndexLayout>
-    <Page>
-      <Container>
-        <h1>404: Page not found.</h1>
-        <p>
-          You've hit the void. <Link to="/">Go back.</Link>
-        </p>
-      </Container>
-    </Page>
-  </IndexLayout>
-)
-
-export default NotFoundPage
+export default IndexPage;
