@@ -60,19 +60,19 @@ const Projects = (props: ProjectsProps) => (
                     </Box>
                 </Stack>
 
-                <Stack w={["100%", "25rem", "40rem"]}>
+                <Stack w={["100%", "100%", "40rem"]}>
                     {props.data.allMarkdownRemark.edges.sort((a, b) => orderOf(b) - orderOf(a)).map(({ node: project }) => (
                         <Flex
                             key={project.frontmatter.projectName}
                             borderWidth={1} rounded="md"
                             px={4} py={3}
-                            height="11.5rem"
+                            height={["auto", "auto", "11.5rem"]}
                         >
                             <Grid
-                                templateRows="2rem 6.75rem 1.25rem"
+                                templateRows={["auto auto auto", "auto auto auto", "2rem 6.75rem 1.25rem"]}
                                 templateColumns="1fr auto"
                                 mr={5}
-                                height={40}
+                                height={["auto", "auto", 40]}
                             >
                                 <Heading fontSize="lg" fontFamily="body" mb={2}
                                     aria-level={3}>{project.frontmatter.projectName}</Heading>
