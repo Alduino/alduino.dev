@@ -1,7 +1,7 @@
 ---
 projectName: ZoneONE
 technologies: [React, SSR, C#, TypeScript]
-image: ./zoneone/example.svg
+image: ./zoneone/screenshot.png
 link: https://gitlab.com/zoneone-app
 orderOverride: 1
 ---
