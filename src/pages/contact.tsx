@@ -38,7 +38,7 @@ const Contact = () => (
                     </Box>
                 </Stack>
 
-                <p><a href="mailto:me@alduino.dev">Send me an email</a> (the form isn't working for now)</p>
+                <p><a href="mailto:me@alduino.dev" style={{textDecoration: "underline"}}>Send me an email</a> (the form isn't working for now)</p>
             </div>
         </Box>
     </Flex>
