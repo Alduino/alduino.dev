@@ -38,21 +38,7 @@ const Contact = () => (
                     </Box>
                 </Stack>
 
-                <form data-netlify="true" method="POST" name="contact">
-                    <Stack w={["100%", "25rem", "40rem"]}>
-                        <InputGroup>
-                            <InputLeftAddon>
-                                <Icon name="email" />
-                            </InputLeftAddon>
-
-                            <Input type="email" name="email" isRequired placeholder="your@email.com" />
-                        </InputGroup>
-
-                        <Textarea name="message" placeholder="Your message" isRequired />
-
-                        <Button type="submit">Send</Button>
-                    </Stack>
-                </form>
+                <p><a href="mailto:me@alduino.dev">Send me an email</a> (the form isn't working for now)</p>
             </div>
         </Box>
     </Flex>
