@@ -2,7 +2,7 @@
 projectName: RadiantPM
 technologies: [React, SSR, TypeScript, GitLab]
 image: ./radiantpm/logo.png
-link: https://gitlab.com/radiant-guild/radiantpm
+link: https://gitlab.com/radiant-guild-oss/radiantpm
 orderOverride: 2
 ---
 
