@@ -38,7 +38,7 @@ const Contact = () => (
                     </Box>
                 </Stack>
 
-                <form netlify method="POST" name="contact">
+                <form data-netlify="true" method="POST" name="contact">
                     <Stack w={["100%", "25rem", "40rem"]}>
                         <InputGroup>
                             <InputLeftAddon>
