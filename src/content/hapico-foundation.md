@@ -1,8 +1,9 @@
 ---
 projectName: Hapico Foundation
 technologies: [React, TypeScript, Mapbox]
-image: ./muzik/screenshot.png
+image: ./hapico/logo.png
 link: https://gitlab.com/Alduino/cab230-a1
+orderOverride: 1
 ---
 
 A website written for a university assignment. The site shows data from the
