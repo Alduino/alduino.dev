@@ -3,7 +3,7 @@ projectName: RadiantPM
 technologies: [React, SSR, TypeScript, GitLab]
 image: ./radiantpm/logo.png
 link: https://gitlab.com/radiant-guild-oss/radiantpm
-orderOverride: 2
+orderOverride: 3
 ---
 
 A self-hosted package manager, linked with GitLab to provide access and publish permissions.
