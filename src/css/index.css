@@ -1,4 +1,5 @@
-@import "common.css";
+@import "@fontsource/montserrat/latin-900.css";
+@import "@fontsource/inter/latin-400.css";
 
 #container {
     position: fixed;
@@ -52,7 +53,7 @@ nav {
 
     & .spacer::after {
         content: "·";
-        color: var(--info);
+        color: rgba(234, 98, 57, 0.5);
     }
 }
 
@@ -64,9 +65,7 @@ main {
 
     background: #000;
     backdrop-filter: blur(12px);
-    border-radius: 8px;
-    border: 1px solid var(--border);
-    box-shadow: 0 0 64px 0 black;
+    box-shadow: 0 0 64px 64px black;
 
     display: flex;
     flex-direction: column;
