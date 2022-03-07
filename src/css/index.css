@@ -1,0 +1,126 @@
+@import "common.css";
+
+#container {
+    position: fixed;
+    z-index: 1;
+
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    display: grid;
+    gap: 1rem;
+    grid-template-rows: 1fr auto auto auto 2fr;
+    grid-template-columns: 1fr auto 1fr;
+
+    color: #ff5900;
+    text-shadow: 0 0 32px rgba(255, 89, 0, 0.5);
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    z-index: -1;
+}
+
+nav {
+    grid-row: 2;
+    grid-column: 2;
+
+    display: flex;
+    flex-direction: row;
+    gap: 0.8rem;
+    align-items: center;
+
+    & a {
+        font-family: Inter, sans-serif;
+        color: #eaa27d;
+
+        &:hover {
+            color: #ea6239;
+        }
+    }
+
+    & .big-spacer {
+        flex-grow: 1;
+    }
+
+    & .spacer::after {
+        content: "·";
+        color: var(--info);
+    }
+}
+
+main {
+    grid-row: 3;
+    grid-column: 2;
+
+    padding: 2rem;
+
+    background: #000;
+    backdrop-filter: blur(12px);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    box-shadow: 0 0 64px 0 black;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+h1 {
+    margin: 0;
+    font-family: Montserrat, sans-serif;
+    font-weight: 900;
+    font-size: 4rem;
+    text-transform: uppercase;
+}
+
+p {
+    margin: 0;
+    font-family: Inter, sans-serif;
+}
+
+a.projects-link {
+    grid-row: 4;
+    grid-column: 2;
+
+    align-self: center;
+
+    display: block;
+
+    border: 1px solid #ff5900;
+    border-radius: 50%;
+
+    font-size: 1.2em;
+    padding: 0.5rem;
+    margin-top: 2rem;
+
+    &:hover {
+        border-color: #ff3c00;
+    }
+
+    &:active, &:focus {
+        border-color: #ff1e00;
+        outline: none;
+    }
+
+    &::before {
+        content: "";
+
+        display: block;
+        width: 1em;
+        height: 1em;
+
+        background-image: url("~/node_modules/@mdi/svg/svg/chevron-down.svg");
+        background-size: cover;
+        background-position: center;
+
+        filter: invert();
+    }
+}
