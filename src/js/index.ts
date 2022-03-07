@@ -21,26 +21,26 @@ const vertexShader = createShader`
 
     ${["var", ATTR_POSITION]};
     ${["var", ATTR_COORD]};
-    
+
     ${["var", UNIFORM_MOUSE]};
     ${["var", UNIFORM_TIME]};
 
     varying vec2 triCoord;
     varying float mouseDist;
-    
+
     float distance(vec2 dist) {
         return sqrt(dist.x * dist.x + dist.y * dist.y);
     }
 
     void main() {
         float dist = distance(${UNIFORM_MOUSE} - ${ATTR_COORD});
-        
+
         float distortion = .1 / dist;
-        
+
         vec2 realCoord = vec2(${ATTR_COORD}.x * 2. - 1., ${ATTR_COORD}.y * 2. - 1.);
 
         triCoord = ${ATTR_COORD};
-        
+
         mouseDist = distance(${UNIFORM_MOUSE} - realCoord);
 
         gl_Position = vec4(${ATTR_POSITION} * 1.01 + ${UNIFORM_MOUSE} / 100., 0., 1.);
@@ -52,33 +52,33 @@ const fragmentShader = createShader`
     precision mediump float;
 
     ${["include", noise3d]}
-    
+
     ${["var", UNIFORM_TIME]};
 
     varying vec2 triCoord;
     varying float mouseDist;
 
-    float hash(float n) {return fract(sin(n * 0.1346) * 43758.5453123);}//from iq
+    float hash(float n) { return fract(sin(n * 0.1346) * 43758.5453123); }//from iq
 
     void main() {
         float offsetX = snoise(vec3(triCoord * 10., 0.)) / 10.;
         vec3 pos = vec3(vec2(triCoord.x + offsetX, triCoord.y) * 4., ${UNIFORM_TIME});
         float noise = snoise(pos);
-        
+
         vec3 colour = mix(
         vec3(.2, 0.6, 0.95),
         vec3(1., 1., 1.),
         noise
         );
-        
+
         float grain = noise3d(vec3(gl_FragCoord.xy * 100., ${UNIFORM_TIME} * 600.));
         float fadeOut = hash13(vec3(pos.xy, ${UNIFORM_TIME} / 3000.));
-        
+
         vec3 result = colour - (fadeOut / 5.);
         result = result * -1.;
-        
+
         float resultBrightness = (result.r + result.g + result.b) / 3. + .4;
-        
+
         gl_FragColor = vec4(result - (grain * (1. - resultBrightness) * .4), 1.);
     }
 `;
@@ -172,9 +172,9 @@ function draw() {
 
 draw();
 
-window.onmousemove = ({clientX, clientY}) => {
+window.onmousemove = ({ clientX, clientY }) => {
     getVar(UNIFORM_MOUSE).set(new Vector2(
         clientX / canvas.width * 2 - 1,
         -(clientY / canvas.height * 2 - 1)
-    ))
+    ));
 };
