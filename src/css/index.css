@@ -16,7 +16,11 @@
     grid-template-columns: 1fr auto 1fr;
 
     color: white;
-    text-shadow: 0 0 32px rgba(255, 89, 0, 0.5);
+    text-shadow: 0 0 32px rgba(0, 166, 255, 0.5);
+
+    @media (prefers-color-scheme: dark) {
+        text-shadow: 0 0 32px rgba(255, 89, 0, 0.5);
+    }
 }
 
 canvas {
@@ -40,10 +44,14 @@ nav {
 
     & a {
         font-family: Inter, sans-serif;
-        color: black;
+        color: white;
 
         &:hover {
-            color: #ea6239;
+            color: #96c0e3;
+
+            @media (prefers-color-scheme: dark) {
+                color: #e3a996;
+            }
         }
     }
 
@@ -53,7 +61,7 @@ nav {
 
     & .spacer::after {
         content: "·";
-        color: black;
+        color: white;
     }
 }
 

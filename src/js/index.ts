@@ -13,6 +13,8 @@ const ATTR_COORD = aVec2b("coord", {});
 const UNIFORM_MOUSE = uVec2("mousePos");
 const UNIFORM_TIME = uFloat("time");
 
+const UNIFORM_MODE = uFloat("mode");
+
 // language=glsl
 const vertexShader = createShader`
     precision mediump float;
@@ -27,7 +29,6 @@ const vertexShader = createShader`
 
     varying vec2 uv;
     varying vec2 triCoord;
-    varying float mouseDist;
 
     float distance(vec2 dist) {
         return sqrt(dist.x * dist.x + dist.y * dist.y);
@@ -43,8 +44,6 @@ const vertexShader = createShader`
         uv = ${ATTR_POSITION};
         triCoord = ${ATTR_COORD};
 
-        mouseDist = distance(${UNIFORM_MOUSE} - realCoord);
-
         gl_Position = vec4(${ATTR_POSITION} * 1.01 + ${UNIFORM_MOUSE} / 100., 0., 1.);
     }
 `;
@@ -56,10 +55,10 @@ const fragmentShader = createShader`
     ${["include", noise3d]}
 
     ${["var", UNIFORM_TIME]};
+    ${["var", UNIFORM_MODE]};
 
     varying vec2 uv;
     varying vec2 triCoord;
-    varying float mouseDist;
 
     float hash(float n) { return fract(sin(n * 0.1346) * 43758.5453123); }//from iq
     
@@ -75,15 +74,23 @@ const fragmentShader = createShader`
         noise
         );
 
-        float grain = noise3d(vec3(gl_FragCoord.xy * 100., ${UNIFORM_TIME} * 600.));
         float fadeOut = hash13(vec3(pos.xy, ${UNIFORM_TIME} / 3000.));
         
-        float middle = 1. - abs(uv.x);
+        float middle = -uv.y;
 
-        vec3 result = colour - (fadeOut / 5.) - (flicker * .01) - middle;
-        result = result * -1.;
+        vec3 result = colour - (fadeOut / 5.) - (flicker * .01);
+        //result = result * -1.;
+        
+        if (${UNIFORM_MODE} < .5) {
+            result += -uv.y / 2. - .3;
+        } else {
+            result *= -1.;
+        }
 
         float resultBrightness = (result.r + result.g + result.b) / 3. + .4;
+
+        //float grain = noise3d(vec3(gl_FragCoord.xy * 100., ${UNIFORM_TIME} * 600.));
+        float grain = snoise(vec3(gl_FragCoord.xy / ((1. - resultBrightness + 1.) * 1.3), ${UNIFORM_TIME} * 600.));
 
         gl_FragColor = vec4(result - (grain * (1. - resultBrightness) * .4), 1.);
     }
@@ -184,3 +191,12 @@ window.onmousemove = ({ clientX, clientY }) => {
         -(clientY / canvas.height * 2 - 1)
     ));
 };
+
+function updateColourMode(isDark: boolean) {
+    getVar(UNIFORM_MODE).set(isDark ? 1 : 0);
+}
+
+const mediaMatch = matchMedia("(prefers-color-scheme: dark)");
+updateColourMode(mediaMatch.matches);
+
+mediaMatch.addEventListener("change", ({matches}) => updateColourMode(matches));
