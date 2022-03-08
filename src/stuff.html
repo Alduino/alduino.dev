@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/stuff.css">
+    <title>Zach Barham</title>
+    <noscript>
+        <style>
+            #container {
+                background: black;
+            }
+
+            * {
+                text-shadow: none;
+            }
+
+            nav h1 {
+                background: white;
+
+                & > a {
+                    color: black;
+                }
+            }
+        </style>
+    </noscript>
+</head>
+<body>
+<canvas></canvas>
+
+<div id="container">
+    <nav>
+        <h1>
+            <a href="/">Zach Barham</a>
+        </h1>
+    </nav>
+
+    <main>
+        <h2>Projects</h2>
+
+        <details>
+            <summary>
+                <img src="https://gitcdn.link/cdn/Alduino/CAB432-A2/master/public/assets/logo-white.svg" />
+
+                <header>
+                    <h3>Artiller</h3>
+                    <p>
+                        <span>React, Typescript, NextJS</span>
+                        <span>Oct 2021</span>
+                    </p>
+                </header>
+
+                <div />
+            </summary>
+
+            <div>
+                <p>
+                    Artiller is a website that is designed to recommend online articles and blog posts. It allows users
+                    to search for articles based on a term, their tags, or a link, and, based on the article’s tags,
+                    author, an analysis of the source text, and the publishing date, recommends similar articles that
+                    the user might want to read. The website will also display an abridged version of the article so
+                    that users don’t have to go to the whole page if they don’t want to - similar to Reader Mode in
+                    browsers.
+                </p>
+                <p>Check it out on <a href="https://github.com/Alduino/CAB432-A2">Github</a>.</p>
+            </div>
+        </details>
+    </main>
+</div>
+
+<script src="./js/index.ts" type="module"></script>
+</body>
+</html>

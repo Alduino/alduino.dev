@@ -48,6 +48,8 @@ const vertexShader = createShader`
     }
 `;
 
+const isHomepage = location.pathname === "/";
+
 // language=glsl
 const fragmentShader = createShader`
     precision mediump float;
@@ -75,16 +77,23 @@ const fragmentShader = createShader`
         );
 
         float fadeOut = hash13(vec3(pos.xy, ${UNIFORM_TIME} / 3000.));
-        
-        float middle = -uv.y;
 
         vec3 result = colour - (fadeOut / 5.) - (flicker * .01);
         //result = result * -1.;
         
         if (${UNIFORM_MODE} < .5) {
-            result += -uv.y / 2. - .3;
+            ${isHomepage ? `
+                result += -uv.y / 2. - .3;
+            ` : `
+                result += abs(uv.x) - 1.5;
+            `}
         } else {
-            result *= -1.;
+            ${isHomepage ? `
+                result *= -1.;
+            ` : `
+                result *= -1.;
+                result += abs(uv.x) - 1.;
+            `}
         }
 
         float resultBrightness = (result.r + result.g + result.b) / 3. + .4;

@@ -42,19 +42,6 @@ nav {
     gap: 0.8rem;
     align-items: center;
 
-    & a {
-        font-family: Inter, sans-serif;
-        color: white;
-
-        &:hover {
-            color: #96c0e3;
-
-            @media (prefers-color-scheme: dark) {
-                color: #e3a996;
-            }
-        }
-    }
-
     & .big-spacer {
         flex-grow: 1;
     }
@@ -62,6 +49,27 @@ nav {
     & .spacer::after {
         content: "·";
         color: white;
+    }
+}
+
+a.page {
+    display: none;
+
+    &:target {
+        display: block;
+    }
+}
+
+a[href] {
+    font-family: Inter, sans-serif;
+    color: white;
+
+    &:hover {
+        color: #96c0e3;
+
+        @media (prefers-color-scheme: dark) {
+            color: #e3a996;
+        }
     }
 }
 
