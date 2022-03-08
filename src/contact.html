@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/stuff.css">
+    <title>Zach Barham</title>
+    <noscript>
+        <style>
+            body {
+                background: black;
+            }
+
+            * {
+                text-shadow: none;
+            }
+
+            nav h1 {
+                background: white;
+
+                & > a {
+                    color: black;
+                }
+            }
+        </style>
+    </noscript>
+</head>
+<body>
+<canvas></canvas>
+
+<div id="container">
+    <nav>
+        <h1>
+            <a href="/">Zach Barham</a>
+        </h1>
+
+        <div class="big-spacer">
+        </div>
+
+        <a target="_blank" href="https://github.com/alduino">Github</a>
+        <div class="spacer"></div>
+        <a target="_blank" href="https://www.linkedin.com/in/zach-barham/">LinkedIn</a>
+        <div class="spacer"></div>
+        <a href="contact.html">Contact</a>
+        <div class="spacer"></div>
+        <a target="_blank" href="https://github.com/alduino/alduino.dev">Source</a>
+    </nav>
+
+    <main>
+        <h2>Contact</h2>
+
+        <form name="contact" netlify>
+            <textarea name="message" placeholder="Type a message here..."></textarea>
+
+            <div>
+                <div class="input">
+                    <img src="~/node_modules/@mdi/svg/svg/face-man.svg">
+                    <input type="text" name="name" placeholder="Your name" />
+                </div>
+                <div class="input">
+                    <img src="~/node_modules/@mdi/svg/svg/mail.svg">
+                    <input type="email" name="email" placeholder="Your email" />
+                </div>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+
+        <p style="text-align:center;margin-top:1rem">
+            Or, shoot an email to
+            <code onclick="getEmail(event)">*click to show*</code>
+        </p>
+    </main>
+</div>
+
+<script type="module">
+    const emailUrl = new URL("./assets/email.txt", import.meta.url);
+
+    window.getEmail = ({currentTarget}) => {
+        fetch(emailUrl).then(res => res.text()).then(email => {
+            const el = document.createElement("a");
+            el.href = `mailto:${email}`;
+            el.style.color = "black";
+            el.style.fontFamily = "monospace";
+            el.textContent = email;
+
+            currentTarget.textContent = "";
+            currentTarget.appendChild(el);
+        });
+        currentTarget.onclick = null;
+    }
+</script>
+
+<script src="./js/index.ts" type="module"></script>
+</body>
+</html>

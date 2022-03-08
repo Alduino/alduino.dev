@@ -84,6 +84,7 @@ const fragmentShader = createShader`
         if (${UNIFORM_MODE} < .5) {
             ${isHomepage ? `
                 result += -uv.y / 2. - .3;
+                result *= .3 + (1. - distance(uv, vec2(0., 0.))) * .7;
             ` : `
                 result += abs(uv.x) - 1.5;
             `}

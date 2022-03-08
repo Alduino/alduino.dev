@@ -63,6 +63,15 @@ nav {
             text-decoration: none;
         }
     }
+
+    & .big-spacer {
+        flex-grow: 1;
+    }
+
+    & .spacer::after {
+        content: "·";
+        color: white;
+    }
 }
 
 main {
@@ -217,4 +226,89 @@ main {
 p, h3 {
     margin: 0;
     font-family: Inter, sans-serif;
+}
+
+code {
+    padding: 0.375rem;
+    background: rgb(155, 190, 236);
+    color: black;
+    border-radius: 3px;
+}
+
+textarea, form .input {
+    color: white;
+    background: #fff2;
+    border: 1px solid #fff4;
+    border-radius: 3px;
+
+    backdrop-filter: blur(12px);
+
+    font-family: Inter, sans-serif;
+}
+
+textarea {
+    width: calc(100% - 2rem);
+    height: 150px;
+    padding: 0.625rem 1rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+form > div {
+    display: flex;
+    flex-direction: row;
+    gap: 1.25rem;
+
+    & button {
+        padding: 0.625rem;
+        border: 1px solid white;
+        background: #fff4;
+
+        color: white;
+        font-family: Inter, sans-serif;
+        font-size: 1rem;
+
+        border-radius: 3px;
+
+        width: 220px;
+    }
+}
+
+form .input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.625rem;
+
+    padding-left: 1rem;
+
+    flex-grow: 1;
+
+    &:focus-within {
+        border-color: #96c0e3;
+    }
+
+    & > img {
+        filter: invert();
+    }
+
+    & > input {
+        padding-top: 0.625rem;
+        padding-bottom: 0.625rem;
+        padding-right: 1rem;
+
+        background: transparent;
+        border: none;
+        outline: none;
+
+        color: white;
+        font-family: Inter, sans-serif;
+        font-size: 1rem;
+
+        flex-grow: 1;
+    }
 }
