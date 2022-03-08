@@ -49,16 +49,16 @@
         <h2>Contact</h2>
 
         <form name="contact" netlify>
-            <textarea name="message" placeholder="Type a message here..."></textarea>
+            <textarea name="message" placeholder="Type a message here..." required minlength="10"></textarea>
 
             <div>
                 <div class="input">
                     <img src="~/node_modules/@mdi/svg/svg/face-man.svg">
-                    <input type="text" name="name" placeholder="Your name" />
+                    <input type="text" name="name" placeholder="Your name" required />
                 </div>
                 <div class="input">
                     <img src="~/node_modules/@mdi/svg/svg/mail.svg">
-                    <input type="email" name="email" placeholder="Your email" />
+                    <input type="email" name="email" placeholder="Your email" required />
                 </div>
                 <button type="submit">Submit</button>
             </div>
