@@ -3,12 +3,12 @@
 @import "@fontsource/inter/latin-600.css";
 
 #container {
-    position: fixed;
+    position: absolute;
     z-index: 1;
 
     top: 0;
     left: 0;
-    width: 100vw;
+    right: 0;
     height: 100vh;
 
     display: grid;
@@ -21,6 +21,10 @@
 
     @media (prefers-color-scheme: dark) {
         text-shadow: 0 0 32px rgba(255, 89, 0, 0.5);
+    }
+
+    @media (max-width: 1300px) {
+        grid-template-columns: 1rem 1fr 1rem;
     }
 }
 
@@ -109,6 +113,8 @@ main {
             flex-direction: row;
             align-items: center;
             gap: 1.875rem;
+
+            height: 60px;
 
             background: #fff1;
 
