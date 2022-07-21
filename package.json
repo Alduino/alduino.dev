@@ -19,7 +19,6 @@
   },
   "homepage": "https://alduino.dev",
   "devDependencies": {
-    "@parcel/transformer-sass": "2.3.2",
     "parcel": "^2.3.2",
     "postcss": "^8.0.0",
     "postcss-import": "^14.0.2",

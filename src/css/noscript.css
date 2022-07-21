@@ -1,0 +1,20 @@
+* {
+    text-shadow: none;
+}
+
+body {
+    background: black;
+}
+
+h1 {
+    color: black;
+    background: white;
+}
+
+nav h1 {
+    background: white;
+
+    & > a {
+        color: black;
+    }
+}
