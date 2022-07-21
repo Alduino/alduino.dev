@@ -137,6 +137,7 @@ a.projects-link {
         background-size: cover;
         background-position: center;
 
-        filter: invert();
+        // needs a capital I to bypass sass
+        filter: Invert();
     }
 }

@@ -179,7 +179,8 @@ main {
 
                     cursor: pointer;
 
-                    filter: invert();
+                    // needs a capital I to bypass sass
+                    filter: Invert();
 
                     background-image: url("~/node_modules/@mdi/svg/svg/chevron-down.svg");
                     background-size: cover;
@@ -293,7 +294,8 @@ form .input {
     }
 
     & > img {
-        filter: invert();
+        // needs a capital I to bypass sass
+        filter: Invert();
     }
 
     & > input {
