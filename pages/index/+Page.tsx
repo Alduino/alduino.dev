@@ -1,7 +1,7 @@
 import React from "react";
 import {
     containerClass,
-    contentContainer,
+    contentContainer, downArrowClass,
     linkClass,
     linkItemClass,
     linksContainerClass,
@@ -33,6 +33,9 @@ export default function Page() {
                            target="_blank">Source</a>
                     </li>
                 </ul>
+                <svg className={downArrowClass} viewBox="0 0 32 16">
+                    <path d="M4,2 L16,14 L28,2" strokeLinecap="round" strokeWidth={2} fill="transparent" />
+                </svg>
             </div>
         </div>
     );

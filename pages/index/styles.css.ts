@@ -1,4 +1,4 @@
-import { createVar, style } from "@vanilla-extract/css";
+import { createVar, keyframes, style } from "@vanilla-extract/css";
 
 const gradientColourA = createVar();
 const gradientColourB = createVar();
@@ -14,6 +14,8 @@ export const containerClass = style({
     width: "100vw",
     height: "100vh",
     backgroundImage: `linear-gradient(135deg, ${gradientColourA}, ${gradientColourB}, ${gradientColourC})`,
+
+    boxShadow: "inset 0 0 4px #0007, inset 0 0 120px #0003",
 
     vars: {
         [gradientColourA]: "#f0c7dc",
@@ -133,4 +135,25 @@ export const linkClass = style({
             width: "100%",
         },
     },
+});
+
+const downArrowAnimation = keyframes({
+    "0%": {
+        transform: "translateY(0)"
+    },
+    "50%": {
+        transform: "translateY(-0.25rem)",
+    },
+    "100%": {
+        transform: "translateY(0)"
+    }
+})
+
+export const downArrowClass = style({
+    width: "2rem",
+    height: "1rem",
+    stroke: textColour,
+    marginTop: "2rem",
+    animation: `${downArrowAnimation} 1s cubic-bezier(0.65, 0, 0.35, 1)`,
+    opacity: 0.5
 });
