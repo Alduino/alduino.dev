@@ -50,8 +50,8 @@ devDependencies:
     specifier: ^18.3.0
     version: 18.3.0
   '@vanilla-extract/vite-plugin':
-    specifier: ^4.0.11
-    version: 4.0.11(@types/node@20.14.9)(vite@5.3.1)
+    specifier: ^3.9.5
+    version: 3.9.5(@types/node@20.14.9)(vite@5.3.1)
   '@vitejs/plugin-react-swc':
     specifier: ^3.7.0
     version: 3.7.0(vite@5.3.1)
@@ -1048,19 +1048,20 @@ packages:
       '@vanilla-extract/private': 1.0.5
     dev: false
 
-  /@vanilla-extract/integration@7.1.6(@types/node@20.14.9):
-    resolution: {integrity: sha512-5fDhW0Bm/MBG9B63On3dHl1tExcmvzG5hdrS9J8LR5qTIHuT5wIxeZ4LEhLgfqgl4b7PglGP+ey7N9rXb/FlOA==}
+  /@vanilla-extract/integration@6.5.0(@types/node@20.14.9):
+    resolution: {integrity: sha512-E2YcfO8vA+vs+ua+gpvy1HRqvgWbI+MTlUpxA8FvatOvybuNcWAY0CKwQ/Gpj7rswYKtC6C7+xw33emM6/ImdQ==}
     dependencies:
       '@babel/core': 7.24.7
       '@babel/plugin-syntax-typescript': 7.24.7(@babel/core@7.24.7)
       '@vanilla-extract/babel-plugin-debug-ids': 1.0.6
       '@vanilla-extract/css': 1.15.3
-      dedent: 1.5.3
       esbuild: 0.19.12
       eval: 0.1.8
       find-up: 5.0.0
       javascript-stringify: 2.1.0
+      lodash: 4.17.21
       mlly: 1.7.1
+      outdent: 0.8.0
       vite: 5.3.1(@types/node@20.14.9)
       vite-node: 1.6.0(@types/node@20.14.9)
     transitivePeerDependencies:
@@ -1086,12 +1087,15 @@ packages:
       '@vanilla-extract/css': 1.15.3
     dev: false
 
-  /@vanilla-extract/vite-plugin@4.0.11(@types/node@20.14.9)(vite@5.3.1):
-    resolution: {integrity: sha512-8t9ErMKaUdaO1mykbtgQvnzOSWhXsr7wwTdxjd6j3nIHf049UbrrmNeA0On3x9+z7kDnIALYa9GhT3IICTDUdg==}
+  /@vanilla-extract/vite-plugin@3.9.5(@types/node@20.14.9)(vite@5.3.1):
+    resolution: {integrity: sha512-CWI/CtrVW6i3HKccI6T7uGQkTJ8bd8Xl2UMBg3Pkr7dwWMmavXTeucV0I9KSbmXaYXSbEj+Q8c9y0xAZwtmTig==}
     peerDependencies:
-      vite: ^4.0.3 || ^5.0.0
+      vite: ^2.2.3 || ^3.0.0 || ^4.0.3 || ^5.0.0
     dependencies:
-      '@vanilla-extract/integration': 7.1.6(@types/node@20.14.9)
+      '@vanilla-extract/integration': 6.5.0(@types/node@20.14.9)
+      outdent: 0.8.0
+      postcss: 8.4.38
+      postcss-load-config: 4.0.2(postcss@8.4.38)
       vite: 5.3.1(@types/node@20.14.9)
     transitivePeerDependencies:
       - '@types/node'
@@ -1103,6 +1107,7 @@ packages:
       - sugarss
       - supports-color
       - terser
+      - ts-node
     dev: true
 
   /@vitejs/plugin-react-swc@3.7.0(vite@5.3.1):
@@ -1412,11 +1417,20 @@ packages:
     hasBin: true
     dev: true
 
+  /lilconfig@3.1.2:
+    resolution: {integrity: sha512-eop+wDAvpItUys0FWkHIKeC9ybYrTGbU41U5K7+bttZZeohvnY7M9dZ5kB21GNWiFT2q1OoPTvncPCgSOVO5ow==}
+    engines: {node: '>=14'}
+    dev: true
+
   /locate-path@6.0.0:
     resolution: {integrity: sha512-iPZK6eYjbxRu3uB4/WZ3EsEIMJFMqAoopl3R+zuq0UjcAm/MO6KCweDgPfP3elTztoKP3KtnVHxTn2NHBSDVUw==}
     engines: {node: '>=10'}
     dependencies:
       p-locate: 5.0.0
+    dev: true
+
+  /lodash@4.17.21:
+    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
     dev: true
 
   /loose-envify@1.4.0:
@@ -1480,6 +1494,10 @@ packages:
     resolution: {integrity: sha512-y10wOWt8yZpqXmOgRo77WaHEmhYQYGNA6y421PKsKYWEK8aW+cqAphborZDhqfyKrbZEN92CN1X2KbafY2s7Yw==}
     dev: true
 
+  /outdent@0.8.0:
+    resolution: {integrity: sha512-KiOAIsdpUTcAXuykya5fnVVT+/5uS0Q1mrkRHcF89tpieSmY33O/tmc54CqwA+bfhbtEfZUNLHaPUiB9X3jt1A==}
+    dev: true
+
   /p-limit@3.1.0:
     resolution: {integrity: sha512-TYOanM3wGwNGsZN2cVTYPArw454xnXj5qmWF1bEoAc4+cU/ol7GVh7odevjp1FNHduHc3KZMcFduxU5Xc6uJRQ==}
     engines: {node: '>=10'}
@@ -1517,6 +1535,23 @@ packages:
       confbox: 0.1.7
       mlly: 1.7.1
       pathe: 1.1.2
+    dev: true
+
+  /postcss-load-config@4.0.2(postcss@8.4.38):
+    resolution: {integrity: sha512-bSVhyJGL00wMVoPUzAVAnbEoWyqRxkjv64tUl427SKnPrENtq6hJwUojroMz2VB+Q1edmi4IfrAPpami5VVgMQ==}
+    engines: {node: '>= 14'}
+    peerDependencies:
+      postcss: '>=8.0.9'
+      ts-node: '>=9.0.0'
+    peerDependenciesMeta:
+      postcss:
+        optional: true
+      ts-node:
+        optional: true
+    dependencies:
+      lilconfig: 3.1.2
+      postcss: 8.4.38
+      yaml: 2.4.5
     dev: true
 
   /postcss@8.4.38:
@@ -1807,7 +1842,6 @@ packages:
     resolution: {integrity: sha512-aBx2bnqDzVOyNKfsysjA2ms5ZlnjSAW2eG3/L5G/CSujfjLJTJsEw1bGw8kCf04KodQWk1pxlGnZ56CRxiawmg==}
     engines: {node: '>= 14'}
     hasBin: true
-    dev: false
 
   /yocto-queue@0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
