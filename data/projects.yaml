@@ -1,0 +1,123 @@
+- title: Artiller
+  type: individual
+  iconPath: /assets/icons/artiller.svg
+  dates: Oct 2021
+  sourceCode: https://github.com/Alduino/CAB432-A2
+  tech:
+    - NextJS / React
+    - Chakra UI
+    - GPT-3
+  description: |
+    Artiller is a university project that was created to learn about data storage and caching.
+    It is a web application that aggregates online articles and blog posts, allowing users to search based on
+    keywords, tags, authors, or a link. This information is also used to recommend similar articles.
+    GPT-3 is used to generate tags for articles where they are missing.
+- title: Tweetch
+  type: individual
+  iconPath: /assets/icons/tweetch.svg
+  dates: Sep 2021
+  sourceCode: https://github.com/Alduino/CAB432-A1
+  tech:
+    - React
+    - Chakra UI
+    - Express
+  description: |
+    Tweetch is a university project that was created to demonstrate creating a full—stack web application using
+    third—party APIs. Its purpose is to help users discover streamers on Twitch, based on who they follow on Twitter.
+    It also shows relevant tweets during a stream to get a wider context of what is happening.
+    Finally, it connects to the YouTube API to show the latest VOD from the creator, in case you missed the stream.
+- title: Muzik
+  type: individual
+  iconPath: /assets/icons/muzik.svg
+  dates: 2021 - now
+  sourceCode: https://github.com/Alduino/Muzik
+  tech:
+    - Vite / React
+    - Electron
+    - TRPC
+    - Vanilla Extract
+  description: |
+    I haven’t been able to find a music player that is exactly how I like, so I decided to make my own.
+    It’s a music player pretty much. Currently it can play music, and that’s about it.
+    However I do plan to add more features, such as lyrics and playlists.
+- title: Hapico
+  type: individual
+  iconPath: /assets/icons/hapico.svg
+  dates: Apr - May 2021
+  sourceCode: https://gitlab.com/Alduino/cab230-a1/
+  tech:
+    - React
+    - Chakra UI
+    - Mapbox
+  description: |
+    Hapico was created for a university assignment to display data from the World Happiness Report.
+    The site was designed to format the data in an easily digestible way, and to be visually appealing.
+    The main feature is a map that allows you to quickly find the happiness score of a country.
+- title: RadiantPM
+  type: individual
+  iconPath: /assets/icons/radiantpm.svg
+  dates: 2022 - now
+  sourceCode: https://github.com/radiantpm/radiantpm
+  tech:
+    - Vite / React
+    - Stitches
+  description: |
+    RadiantPM is a self—hosted package manager, created for use internally at the Radiant Guild to
+    host our private npm and nuget packages. It's designed around a plugin system so it can be extremely configurable,
+    after an original attempt failed due to increasing development difficulty.
+    
+    Currently, the project is functional but early in development. It supports npm package hosting, and can be
+    configured with various authorisation and storage methods.
+- title: Experiments
+  type: individual
+  iconPath: /assets/icons/experiments.svg
+  dates: 2020 - now
+  sourceCode: https://github.com/alduino/experiments
+  website: https://experiments.alduino.dev
+  tech:
+    - Typescript
+    - Graphics
+    - Web Audio
+  description: |
+    A collection of small experiments I’ve made, to test concepts and learn new things.
+    To simplify the process of creating new experiments, I’ve created a framework that handles the boilerplate code,
+    including the canvas, event handling, a component system, and coroutine management.
+- title: The Radiant Guild
+  type: group
+  iconPath: /assets/icons/rg.svg
+  dates: 2020 - now
+  sourceCode:
+    label: GitHub org
+    url: https://github.com/radiantguild
+  tech:
+    - NextJS / React
+    - Vanilla Extract
+    - React Query
+    - ASP.net
+  description: |
+    The Radiant Guild is a community of comic artists, writers, and enthusiasts, currently with around 45 members.
+    The website is a place for creators to share their work, and for readers to discover new comics.
+    At the moment, the site is being redesigned and rebuilt from the ground up to be more performant and easier to
+    develop.
+    
+    I’m working on the front-end of the site, including design, tooling, and development.
+    My friend [AUSBird](https://github.com/ausbird) is creating the back-end.
+- title: ZoneONE
+  type: group
+  iconPath: /assets/icons/zoneone.svg
+  dates: 2019 - now
+  tech:
+    - NextJS / React
+    - Vanilla Extract
+    - Prisma
+    - trpc
+    - GTFS
+  description: |
+    ZoneONE is a website that tracks public transport in south—east Queensland.
+    As the site is specifically for SEQ, it is able to provide more detailed information specific to the region.
+    
+    I’m doing the development of the site, based on UI designs and algorithms created by my friend
+    [pionsix](https://github.com/pionsix).
+    
+    Currently the site is still in early development, however there is an early version available at
+    [dev.zoneone.app](https://dev.zoneone.app).
