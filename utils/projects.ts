@@ -6,8 +6,8 @@ export interface Project {
     type: "individual" | "group";
     iconPath: string;
     dates: string;
-    sourceCode?: string;
-    website?: string;
+    sourceCode?: string | {label: string, url: string};
+    website?: string | {label: string, url: string};
     tech: string[];
     description: string;
 }
