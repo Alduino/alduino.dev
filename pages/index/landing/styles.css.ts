@@ -1,20 +1,25 @@
 import { keyframes, style } from "@vanilla-extract/css";
 import { linkHoverColour, linkInactiveColour, textColour } from "../styles.css";
+import { getNormalisedAnimationValue, interpolate } from "../animation-helpers";
+import { unitlessWindowHeight } from "../animation.css";
+import { calc } from "@vanilla-extract/css-utils";
 
 export const landingContainerClass = style({
     display: "grid",
     placeItems: "center",
     height: "100vh",
 });
+
 export const contentContainerClass = style({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     mixBlendMode: "luminosity",
 });
+
 export const titleClass = style({
     display: "flex",
-    gap: "1rem",
+    gap: interpolate("1rem", "3rem", getNormalisedAnimationValue(0, calc.multiply(unitlessWindowHeight, 0.35))),
     alignItems: "center",
 
     margin: 0,
@@ -30,12 +35,14 @@ export const titleClass = style({
         "&::before, &::after": {
             content: "",
             display: "block",
-            width: "1rem",
+            width: interpolate("1rem", "3rem", getNormalisedAnimationValue(0, calc.multiply(unitlessWindowHeight, 0.35))),
             height: "1px",
             backgroundColor: textColour,
+            opacity: interpolate("1", "0.5", getNormalisedAnimationValue(0, calc.multiply(unitlessWindowHeight, 0.35))),
         },
     },
 });
+
 export const subtitleClass = style({
     margin: 0,
     fontFamily: "Kulim Park",
@@ -51,6 +58,7 @@ export const subtitleClass = style({
         },
     },
 });
+
 export const separatorClass = style({
     width: "50%",
     height: 0,
@@ -58,15 +66,18 @@ export const separatorClass = style({
     border: "none",
     borderBottom: `1px dashed ${textColour}`,
 });
+
 export const linksContainerClass = style({
     display: "flex",
     gap: "1rem",
     margin: 0,
     padding: 0,
 });
+
 export const linkItemClass = style({
     display: "block",
 });
+
 export const linkClass = style({
     display: "flex",
     flexDirection: "column",
@@ -96,6 +107,7 @@ export const linkClass = style({
         },
     },
 });
+
 const downArrowAnimation = keyframes({
     "0%": {
         transform: "translateY(0)",
@@ -107,6 +119,7 @@ const downArrowAnimation = keyframes({
         transform: "translateY(0)",
     },
 });
+
 export const downArrowClass = style({
     width: "2rem",
     height: "1rem",
@@ -115,3 +128,4 @@ export const downArrowClass = style({
     animation: `${downArrowAnimation} 1s cubic-bezier(0.65, 0, 0.35, 1)`,
     opacity: 0.5,
 });
+
