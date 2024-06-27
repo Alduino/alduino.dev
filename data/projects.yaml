@@ -3,16 +3,21 @@
   iconPath: /assets/icons/artiller.svg
   dates: Oct 2021
   sourceCode: https://github.com/Alduino/CAB432-A2
+  screenshots:
+    - path: assets/screenshots/artiller/homepage.png
+      description: Artiller's homepage, designed to be very clean and simple
+    - path: assets/screenshots/artiller/search-results.png
+      description: The page that shows as you type your search query
+    - path: assets/screenshots/artiller/article.png
+      description: The view of an article, showing its text and metadata
   tech:
     - NextJS / React
     - Chakra UI
     - GPT-3
   description: |
     Artiller is a university project that was created to learn about data storage and caching.
-
     It is a web application that aggregates online articles and blog posts, allowing users to search based on
     keywords, tags, authors, or a link. This information is also used to recommend similar articles.
-
     GPT-3 is used to generate tags for articles where they are missing.
 - title: Tweetch
   type: individual
@@ -26,15 +31,18 @@
   description: |
     Tweetch is a university project that was created to demonstrate creating a full—stack web application using
     third—party APIs. Its purpose is to help users discover streamers on Twitch, based on who they follow on Twitter.
-
     It also shows relevant tweets during a stream to get a wider context of what is happening.
-
     Finally, it connects to the YouTube API to show the latest VOD from the creator, in case you missed the stream.
 - title: Muzik
   type: individual
   iconPath: /assets/icons/muzik.svg
   dates: 2021 - now
   sourceCode: https://github.com/Alduino/Muzik
+  screenshots:
+    - path: assets/screenshots/muzik/track-list.png
+      description: Muzik's main page, the song list. (Still very early in the design)
+    - path: assets/rick.webp
+      description: Sorry lol, I need more than one image for the carousel
   tech:
     - Vite / React
     - Electron
@@ -50,6 +58,11 @@
   iconPath: /assets/icons/hapico.svg
   dates: Apr - May 2021
   sourceCode: https://gitlab.com/Alduino/cab230-a1/
+  screenshots:
+    - path: assets/screenshots/hapico/searchbox.png
+      description: Country search pops up when you click the search box, with simple autocompletion
+    - path: assets/screenshots/hapico/rankings.png
+      description: A world map showing happiness rankings by country and year
   tech:
     - React
     - Chakra UI
@@ -95,6 +108,13 @@
   sourceCode:
     label: GitHub org
     url: https://github.com/radiantguild
+  screenshots:
+    - path: assets/screenshots/radiantguild/homepage.png
+      description: The current homepage, showing the creators and their comics
+    - path: assets/screenshots/radiantguild/comic-creation.png
+      description: The comic creation flow, using a multi-step form
+    - path: assets/screenshots/radiantguild/login.png
+      description: The login flow
   tech:
     - React (NextJS & Vike)
     - Vanilla Extract
@@ -118,6 +138,11 @@
     - Prisma
     - trpc
     - GTFS
+  screenshots:
+    - path: assets/screenshots/zoneone/homepage.png
+      description: The ZoneONE app, showing a map of stops and the trips at one stop
+    - path: assets/rick.webp
+      description: Sorry lol, I need more than one image for the carousel
   description: |
     ZoneONE is a website that tracks public transport in south—east Queensland.
     As the site is specifically for SEQ, it is able to provide more detailed information specific to the region.

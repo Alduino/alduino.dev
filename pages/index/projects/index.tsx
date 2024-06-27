@@ -9,6 +9,9 @@ import {
     projectClass,
     projectContentClass,
     projectTitleClass,
+    screenshotClass,
+    screenshotContainerClass,
+    screenshotDescriptionClass, screenshotLinkClass,
     summaryClass,
     summaryFirstLineClass,
     summarySecondLineClass,
@@ -20,6 +23,13 @@ import { useData } from "vike-react/useData";
 import Markdown from "react-markdown";
 import moduleStyles from "./markdown.module.css";
 import { VscCloud, VscCode } from "react-icons/vsc";
+import * as ReactSlick from "react-slick";
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+// Hmmmmm
+const Slider = (ReactSlick.default as unknown as { default: typeof ReactSlick.default }).default ?? ReactSlick.default;
 
 export function Projects() {
     const projects = useData<Project[]>();
@@ -83,6 +93,20 @@ function Project({ project }: ProjectProps) {
             )}
 
             <div className={projectContentClass}>
+                {project.screenshots && (
+                    <Slider dots infinite arrows={false} slidesToShow={1} slidesToScroll={1}>
+                        {project.screenshots.map(screenshot => (
+                            <div key={screenshot.path}>
+                                <div className={screenshotContainerClass}>
+                                    <img className={screenshotClass} src={screenshot.path}
+                                         alt={screenshot.description} />
+                                    <p className={screenshotDescriptionClass}>{screenshot.description} (<a className={screenshotLinkClass} href={screenshot.path} target="_blank">expand</a>)</p>
+                                </div>
+                            </div>
+                        ))}
+                    </Slider>
+                )}
+
                 <div className={moduleStyles.markdown}>
                     <Markdown>{project.description}</Markdown>
                 </div>

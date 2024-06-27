@@ -178,3 +178,33 @@ export const linkLinkClass = style({
         textDecoration: "underline",
     },
 });
+
+export const screenshotContainerClass = style({
+    alignItems: "center",
+    paddingBottom: "1rem",
+});
+
+export const screenshotClass = style({
+    maxWidth: "24rem",
+    maxHeight: "13.5rem",
+    margin: "0 auto",
+    borderRadius: "3px",
+});
+
+export const screenshotDescriptionClass = style({
+    fontStyle: "italic",
+    fontSize: "0.8rem",
+    textAlign: "center",
+    opacity: 0.8,
+    margin: "0.5rem 0 0 0"
+});
+
+export const screenshotLinkClass = style({
+    fontWeight: 500,
+    textDecoration: "none",
+    color: "currentColor",
+
+    ":hover": {
+        textDecoration: "underline",
+    },
+});
